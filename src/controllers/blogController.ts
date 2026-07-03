@@ -3,7 +3,7 @@ import asyncHandler from "express-async-handler";
 import mongoose from "mongoose";
 import Blog from "../models/Blog";
 
-const SITE_TYPES = ["medical", "love"];
+const SITE_TYPES = ["medical", "general", "love"];
 
 function slugify(title: string) {
   return title
@@ -101,7 +101,7 @@ export const createBlog = asyncHandler(async (req: Request, res: Response) => {
     return;
   }
   if (!siteType || !SITE_TYPES.includes(siteType)) {
-    res.status(400).json({ error: "A valid siteType (medical or love) is required" });
+    res.status(400).json({ error: "A valid siteType (medical, general, or love) is required" });
     return;
   }
 

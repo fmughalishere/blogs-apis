@@ -7,7 +7,7 @@ export interface IBlog extends Document {
   content: string;
   coverImage?: string;
   category: string;
-  siteType: "medical" | "love";
+  siteType: "medical" | "general" | "love";
   tags: string[];
   status: "draft" | "published";
   author: Types.ObjectId;
@@ -24,7 +24,7 @@ const BlogSchema = new Schema<IBlog>(
     content: { type: String, required: true },
     coverImage: { type: String },
     category: { type: String, default: "General", index: true },
-    siteType: { type: String, enum: ["medical", "love"], required: true, default: "love", index: true },
+    siteType: { type: String, enum: ["medical", "general", "love"], required: true, default: "love", index: true },
     tags: { type: [String], default: [] },
     status: { type: String, enum: ["draft", "published"], default: "published" },
     author: { type: Schema.Types.ObjectId, ref: "User", required: true },

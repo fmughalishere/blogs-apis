@@ -3,7 +3,7 @@ import asyncHandler from "express-async-handler";
 import Comment from "../models/Comment";
 import Blog from "../models/Blog";
 
-const SITE_TYPES = ["medical", "love"];
+const SITE_TYPES = ["medical", "general", "love"];
 
 // GET /api/comments?blogId=xxx   (public — approved only)
 export const getApprovedComments = asyncHandler(async (req: Request, res: Response) => {
